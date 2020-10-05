@@ -1,0 +1,29 @@
+html,body{
+  width: 100%;
+  height: 100%;
+}
+body{
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card{
+  background-color: white;
+  height: 100px;
+  width: 200px;
+  position: relative;
+}
+.card::after{/*usamos pseudoelementos para poder aplicar el degradado*//*ahora todo es relativo  la sombra*/
+  position: absolute;/*las coordenadas son relativas al padre por eso en el padre ponemos relative*/
+  /*si pongo position top la sombra seria hacia arriba*/
+  top: 0px;
+  left: 0px;
+  content: " ";/*solo para q se vea el elemento,esta propiedad si no sale en el pseudoeelemento el navegador lo ignora*/
+  background: linear-gradient(to right, #3F5EFB, #FC466B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  width: 100%;/*ancho o alto de la sombra*/
+  height: 100%;
+  filter: blur(20px);
+  z-index: -1;
+}

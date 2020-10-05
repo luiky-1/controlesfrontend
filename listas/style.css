@@ -1,0 +1,19 @@
+.list li{
+  list-style-type: none;
+  position: relative;
+  margin-top: 1em;
+}
+
+.list li::before{
+  content: "\f00d";
+  position: absolute;
+  width: 0.5em;
+  height: 0.5em;
+  font-family: FontAwesome;
+  color: green;
+  font-size: 0.8em;
+  /*border-radius: 50%;
+  background-color: pink;*/
+  left:-1.3em;
+  top:0.25em;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      .avatar{
+        width:100px;
+        height: 100px;
+        border-radius: 50%;
+        background-image: url('./goku.jpg');
+        background-size: cover;/*<!--para q abarque todo el div-->*/
+        background-position: center;
+        position: relative;
+      }
+      .avatar::after{/*usamos el pdeudoelemento para el borde*/
+        position: absolute;
+        top:0px;
+        left:0px;
+        width: 100%;/*q cubra todo el ancho y alto de la original (avatar*/)
+        height: 100%;
+        border-radius: 50%;
+        background-color: red;/*se mantiene por si un navegador no soporta el conic-gradient*/
+        content: ' ';/*el content para q se muestre el pseudoelemento debe tener un valor aunque sea un string vacio*/
+        z-index: -1;/*para q aparezaca detras*/
+        transform: scale(1.1);/*lo hace un pelin mas grande y asi vemos el borde, mide desde el propio centro del avatar*/
+        background: conic-gradient(#feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5,#feda75);/*el gradiente cónico q le da el toque*/
+      }/*no es mas que un cono visto dese arriba con una imagen que lo cubre por encima al 90%*/
+    </style>
+  </head>
+  <body>
+    <div class="avatar"></div><!--tiene q ser un div no puede ser img pq usaremos pseudoelementos y no se pueden insertar sobre las imagenes-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script><!-- a partir de aquie es la opcion copiada de github para insertar por medio de css el efecto q conseguimos en esta pantalla. solo para los navegadores q no soportn el conic gradient-->
+
+    <script src="./conic-gradient.js"></script>
+  </body>
+</html>

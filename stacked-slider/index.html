@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      .slider{
+        width: 600px;
+        height: 600px;
+        max-width: 100%;
+        max-height: 100vh;
+        position: relative;
+        overflow: hidden;/*lo q este por fuera del elemento se oculta*/
+      }
+      .element{
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+        position: absolute;
+        top:0px;/*ESTAS COORD SON RELATIVAS AL PADRE SLIDER PQ HEMOS PUESTO RELATIVE EN POSITION*/
+        left: -100%;
+        box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.5);
+
+        transition: left 0.5s ;
+      }
+      .element.active{/*elemento activo*/
+        z-index: 2;/*q siempre esté por encima del q va a salir*/
+        left: 0px;
+      }
+      .element.start-out{/*elemento q esta por salir*/
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider">
+      <div class="element" style="background-image:url('./images/libellula.jpg')">
+
+      </div>
+
+      <div class="element" style="background-image:url('./images/mariposa.jpg')">
+
+      </div>
+
+      <div class="element" style="background-image:url('./images/PONTE.jpg')">
+
+      </div>
+    </div>
+    <script>
+      let elements = document.querySelectorAll('.element');/*para usar todos los elemento q forman parte del slider,ahora el arreglo elements incluye los 3 elemnt*/
+      let currentIndex = -1;/*nos indica cual es elelemento q tenemos que animar*/
+      /*cuando activamos la funcion suma 1 y empieza en el cero que es la primera imagen libellula*/
+      next();/*ejecutamos la funcion next*/
+
+      function next(){
+        currentIndex = currentIndex + 1;/*hay q incrementar elindex de 1 en 1*/
+
+        if(currentIndex >= elements.length) currentIndex = 0;/*si el index es mayor que la longitud del num de elementos q reinicie el index*/
+
+        let el = elements[currentIndex];/*el elemento a animar es dentro del index uno de los 3 elementos del arreglo currentindex va iterando cada una de las posiciones*/
+
+        let activeElement = document.querySelector('.element.active');/*buscamos el elemento activo, el q tiene la clase elemnet y tambien active*/
+
+        if(activeElement){/*si hay un elemento activo*/
+          activeElement.classList.add('start-out');/*le agregamos la clase startout para q se deslice*/
+          setTimeout(moveActive,500,activeElement)/*despues de 500ms que ejecute la funcion moveactive y activeelement*/
+        }/*active element se pasa como argumento referido al primer argumento de settimeout moveactive*/
+
+        el.classList.add('active');/*al elemento q está activo le agregamos la clase active*/
+        setTimeout(next,5000);
+
+      }
+
+      function moveActive(activeElement){/*ejecutamos la funcion moveactive sobre el elemento activo*/
+        /*activeelement se busca en la linea 63,se pasa en la linea 67 y acaba formando parte de 75*/
+        activeElement.classList.remove('active');/*para q se pase por encima del anterior elemento*/
+        activeElement.classList.remove('start-out');
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+.input-form{
+  position: relative;
+  padding-top: 12px;
+}
+
+.input-form input{
+  width: 100%;
+  border:none;
+  padding:8px 0px;
+  border-bottom: solid 1px #bdbdbd;
+}
+
+.input-form input:focus{/*cuando el input tenga el foco*/
+  outline: none;
+}
+
+.input-form input:focus + label, .input-form input.non-empty + label{/*cuando el input del input-form tenga el focus el label que esta a su lado*/
+  font-size: 0.6em; /*reduce el tamaño de letra*/                     /* a una etiqueta o lebel que esta pegado a un input con la clase no empty que esté dentro de un input for*/
+  margin-top: -12px;/*y se mueve hacia arriba*/
+}
+
+.input-form label{
+  position: absolute;
+  top:14px;
+  left:0px;
+  pointer-events: none;
+  width: 100%;
+  transition: all 0.2s;/*tiempo de transicion q afecta a todas sus propiedades, tamaño, posicion....*/
+}
+
+.input-form label::after{/*usamos un pseudoelemento para no tener que estar creando elementos nuevos dentro de nuestro html*/
+  position: absolute;     /*pseudoselector after*/
+  content: "";/*lo ponemos vacio para q se muestre*/
+  width: 100%;
+  left:0%;
+  height: 1px;
+  background-color:currentColor;/*encaja el color con el color de nuestra variables q definimos abajo en valido o invalido*/
+  visibility: hidden;/*oculta el borde q flota*/*/
+  transform:scale(0);/*oculta el borde que flota*/
+  bottom: -30px;
+  transition: transform 0.15s cubic-bezier(0.4, 0.0, 0.2, 1);/*queremos una transicion sobre la propiedad transform, cubic-bezier es una animacion q utiliza ,material design*/
+  transition-delay: 0.15s;/*retrasamos la transicion de nuestro elemento*/
+}
+
+.input-form input:focus + label::after, .input-form input.non-empty + label::after{/*para q se muestre el borde que flota en estas condiciones,pseudoelemento after*/
+  transform: scale(1);
+  visibility: visible;
+}
+
+.input-form input:valid + label{/*cuando el input sea valido el label que tiene al lado-sibling...*/
+  color:#1565c0;
+}
+
+.input-form input:invalid + label{/*el label al escribir nos indica si lo que hemos escrito está bioen o mal*/
+  color:#d32f2f;
+}
+
+.input-form input:not(:focus):not(.non-empty) + label{/*el input si no tiene la clase focus ni la clase no empty*/
+  color: #bdbdbd;
+}

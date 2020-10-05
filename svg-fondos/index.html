@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      .snowflake{
+        -webkit-mask:url(snowflake.svg) repeat 100% 100% / 20px 20px;
+        <!-- hacemos un grid del 100% con el svg de tamaño 10px y a continuacion añadimos degradado-->
+
+        background: #ee0979;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #ff6a00, #ee0979);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #ff6a00, #ee0979); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        height: 700px;
+        width: 700px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="snowflake">
+
+    </div>
+
+  </body>
+</html>

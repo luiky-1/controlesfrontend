@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <button type="button" data-filter="all">Todos</button>//con filter se activa un unico boton//
+        <button type="button" data-toggle=".general">Generales</button>//con toggle se activan varios botones a la vez//
+        <button type="button" data-toggle=".mobile">Móviles</button>
+        <button type="button" data-toggle=".gaming">Juegos</button>
+        <button type="button" data-toggle=".web">Web</button>
+      </nav>
+
+      <div class="card mix mobile">
+        <h3>Curso de iOS</h3>
+        <img src="./imagenes/whatsapp.jpg" alt="">
+      </div>
+
+      <div class="card mix mobile">
+        <h3>Curso de Ionic + Firebase</h3>
+        <img src="./imagenes/images.jpg" alt="">
+      </div>
+
+      <div class="card mix general">
+        <h3>Curso de Kotlin</h3>
+        <img src="./imagenes/descarga.jpg" alt="">
+      </div>
+
+      <div class="card mix gaming">
+        <h3>Curso de Juegos</h3>
+        <img src="./imagenes/youtube.png" alt="">
+      </div>
+
+      <div class="card mix web"> /*clase card clase mix y categoria a asignar*/
+        <h3>Curso de mi primera página web</h3>
+        <img src="./imagenes/facebook.png" alt="">
+      </div>
+    </div>
+
+
+    <script src="./mixitup.js" charset="utf-8"></script>
+    <script src="./main.js" charset="utf-8"></script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      body{
+        background-color: black;
+      }
+      .firweworks{
+        width:300px;/*el tamaño del fotograma*/
+        height:300px;
+
+        background-image: url('./fireworks.png');
+        background-size: 9600%;/*multiplicamos por 100 el numero de fotogramas*/
+        background-position: left;/*q inicie en el primer footograma por la izq*/
+
+        animation-name: move;/*enlazamos la animacion q escribimos en la lin 25*/
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+
+        animation-timing-function: steps(95);/*argumento son la cantidad de fotogramas menos uno esta es la clave de la animacion*/
+        /*si no ponemos ésto la imagen se moveria como si se pasase una cinta por detras*/
+        /*steps indica cuantos pasos va a contener la animacion*/
+      }
+
+      @keyframes move {/*animar el backgrounposition de left a right*/
+        from{background-position: left;}
+        from{background-position: right;}
+      }
+    </style>
+  </head>
+  <body>
+    <div class="firweworks">
+
+    </div>
+  </body>
+</html>

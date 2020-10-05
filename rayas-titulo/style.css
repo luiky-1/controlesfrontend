@@ -1,0 +1,23 @@
+body{
+  text-align: center;
+}
+h1{
+  display: inline-block;/*q el ancho abarque solo el tamaño de h1*/
+  position: relative;/*asi podemos mover las rayas(el hijo) con respecto al h1 q es el padre*/
+  font-family: 'Dancing Script', cursive;
+
+}
+h1::after, h1::before{/*usamos los pseudoelementos after y before*/
+  content:"";/*para q se muestre, aunque sea un string vacío, es necesario q esté esta propiedad*/
+  position: absolute;
+  width:120px;/*tamaño de las rayas*/
+  height: 3px;
+  background-color: currentColor;/*de esta manera el color de las rayas yla frase es el mismo*/
+  top: 0.6em;
+}
+h1::before{/*para poder manejar las lineas de forma independiente*/
+  left: -140px;
+}
+h1::after{/*para poder manejar las lineas de forma independiente*/
+  right: -140px;
+}
